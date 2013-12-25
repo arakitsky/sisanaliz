@@ -17,7 +17,7 @@ public class SimpleMethodTest {
     @Test
     public void getExtremumTest(){
         double e = 10e-4;
-        double extremum = simpleMethod.getExtremum(new Lab1TestFunction(), -10, 10, e);
+        double extremum = simpleMethod.getExtremum(new Lab1TestFunction(), -10, 10, ExtremaType.MIN, e);
         assertEquals(extremum,0,e);
     }
 }

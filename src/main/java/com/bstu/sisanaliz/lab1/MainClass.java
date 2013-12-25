@@ -38,7 +38,7 @@ public class MainClass {
         MainClass mainClass = new MainClass();
         List<Interval> tabulation = mainClass.getFunctionTabulationService().getTabulation(mainClass.getFunction(), startPoint, endPoint, countSteps);
         for (Interval interval : tabulation) {
-            mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval.getX1(), interval.getX2(), E);
+            mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval.getX1(), interval.getX2(), ExtremaType.MIN, E);
         }
 
     }
