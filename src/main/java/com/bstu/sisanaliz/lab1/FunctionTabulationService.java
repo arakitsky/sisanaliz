@@ -15,9 +15,9 @@ public class FunctionTabulationService {
         double stepX2h=start+2*h;
         ArrayList<Interval> intervals = new ArrayList<Interval>();
         do{
-            double fx = function.getFunction(stepX);
-            double fxh = function.getFunction(stepXh);
-            double fx2h = function.getFunction(stepX2h);
+            double fx = function.getValue(stepX);
+            double fxh = function.getValue(stepXh);
+            double fx2h = function.getValue(stepX2h);
             //функция максимума
             if((fx<fxh && fxh>fx2h) ){
                 intervals.add(new Interval(stepX,stepX2h,ExtremaType.MAX));

@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.Function;
 
+import com.bstu.sisanaliz.functions.AbstractFunction;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,12 +23,13 @@ public class FunctionTabulationServiceTest  {
         mockFunctionStatigy = new MockFunctionStatigy();
     }
 
-    class MockFunctionStatigy implements Function {
+    class MockFunctionStatigy extends AbstractFunction implements Function {
 
-        @Override
-        public double getFunction(double x) {
+        protected double getFunctionValue(double x) {
             return sin(x);
         }
+
+
     }
 
     @Test

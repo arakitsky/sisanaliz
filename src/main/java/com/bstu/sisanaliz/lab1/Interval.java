@@ -23,4 +23,14 @@ public class Interval {
     public ExtremaType getExtremaType() {
         return extremaType;
     }
+
+
+    @Override
+    public String toString() {
+        return "Interval{" +
+                "x1=" + x1 +
+                ", x2=" + x2 +
+                ", extremaType=" + extremaType +
+                '}';
+    }
 }
