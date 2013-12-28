@@ -1,22 +1,25 @@
 package com.bstu.sisanaliz.lab1;
 
+import com.bstu.sisanaliz.ExtremaType;
+import com.bstu.sisanaliz.Point;
+
 public class Interval {
 
-    public Interval(double x1, double x2, ExtremaType extremaType) {
+    public Interval(Point x1, Point x2, ExtremaType extremaType) {
         this.x1 = x1;
         this.x2 = x2;
         this.extremaType = extremaType;
     }
 
-    private double x1;
-    private double x2;
+    private Point x1;
+    private Point x2;
     private ExtremaType extremaType;
 
-    public double getX1() {
+    public Point getX1() {
         return x1;
     }
 
-    public double getX2() {
+    public Point getX2() {
         return x2;
     }
 

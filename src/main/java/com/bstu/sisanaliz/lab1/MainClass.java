@@ -1,8 +1,9 @@
 package com.bstu.sisanaliz.lab1;
 
+import com.bstu.sisanaliz.ExtremaType;
 import com.bstu.sisanaliz.Function;
+import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.functions.Lab1Fuction;
-import com.bstu.sisanaliz.functions.Lab1MaxTestFunction;
 
 import java.util.List;
 
@@ -10,9 +11,9 @@ public class MainClass {
 
 
     public static final double E = 10e-4;
-    public static final double startPoint = 0;
-    public static final double endPoint = 2.6;
-    public static final int countSteps = 10;
+    public static final Point startPoint = new Point( new double[]{0});
+    public static final Point endPoint = new Point( new double[]{2.6});
+    public static final int countSteps = 100;
 
     public MainClass() {
         functionTabulationService = new FunctionTabulationService();
@@ -38,9 +39,11 @@ public class MainClass {
 
     public static void main(String[] args) {
         MainClass mainClass = new MainClass();
+        int iter=0;
         List<Interval> tabulation = mainClass.getFunctionTabulationService().getTabulation(mainClass.getFunction(), startPoint, endPoint, countSteps);
         for (Interval interval : tabulation) {
-            double extremum = mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval.getX1(), interval.getX2(), ExtremaType.MIN, E);
+            System.out.println(++iter);
+            Point extremum = mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval.getX1(), interval.getX2(), ExtremaType.MIN, E);
             System.out.println(interval + " point = " + extremum + ", function = " + mainClass.getFunction().getCountCallFunction());
         }
 

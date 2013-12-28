@@ -1,6 +1,8 @@
 package com.bstu.sisanaliz.lab1;
 
+import com.bstu.sisanaliz.ExtremaType;
 import com.bstu.sisanaliz.Function;
+import com.bstu.sisanaliz.Point;
 
 import java.util.Random;
 
@@ -13,36 +15,45 @@ public class SimpleMethod {
      * (maxA maxB) больший орезок. Min - минимальная точка
      */
     class ComparePointResult {
-        ComparePointResult(double maxA, double maxB,boolean axMax) {
+        ComparePointResult(Point maxA, Point maxB,boolean axMax) {
             this.maxA = maxA;
             this.maxB = maxB;
             this.axMax = axMax;
         }
 
-        private double maxA, maxB;
+        private Point maxA, maxB;
         private boolean axMax;
 
-        public double getMaxA() {
+        public Point getMaxA() {
             return maxA;
         }
 
-        public double getMaxB() {
+        public Point getMaxB() {
             return maxB;
         }
         boolean isAxMax() {
             return axMax;
         }
+
+        @Override
+        public String toString() {
+            return "ComparePointResult{" +
+                    "maxA=" + maxA +
+                    ", maxB=" + maxB +
+                    ", axMax=" + axMax +
+                    '}';
+        }
     }
 
-    public double getExtremum(Function function, double startPoint, double endPoint, ExtremaType extremaType, double e) {
-        double a = startPoint;
-        double b = endPoint;
+    public Point getExtremum(Function function, Point startPoint, Point endPoint, ExtremaType extremaType, double e) {
+        Point a = startPoint;
+        Point b = endPoint;
         int iteration = 0;
         do{
             iteration++;
-            double x = getX(a, b);
+            Point x = getX(a, b);
             ComparePointResult bigVector = comparePoint(function,a, b, x);
-            double s = getRandom(bigVector.getMaxA(),bigVector.getMaxB());
+            Point s = getRandom(bigVector.getMaxA(),bigVector.getMaxB());
             double fs = function.getValue(s);
             double fx = function.getValue(x);
             if(
@@ -64,25 +75,25 @@ public class SimpleMethod {
 //                printLog(iteration, "2.fb<fs",a, b, x, s);
             }
 
-        }while ((b - a) > e) ;
-        printLog(iteration, "END",a,b, 0, 0);
-        return (a+b)/2;
+        }while ((b.minus( a).module()) > e) ;
+        printLog(iteration, "END",a,b, null, null);
+        return a.plus(b).multiply(1.0/2.0);
     }
 
-    private void printLog(int iteration, String s, double a, double b, double x, double v) {
-        System.out.printf(iteration+",\t"+s+" ,\ta=%.4f,\tb=%.4f,\tx=%.4f,\ts=%.4f\n",a,b,x,v);
+    private void printLog(int iteration, String s, Point a, Point b, Point x, Point v) {
+        System.out.println(iteration + ",\t" + s + " ,\ta=" + a + ",\tb=" + b + ",\tx=" + x + ",\tv=" + v);
     }
 
-    private double getX(double startPoint, double endPoint) {
+    private Point getX(Point startPoint, Point endPoint) {
         return getRandom(startPoint,endPoint);
 //        return startPoint+(endPoint-startPoint)/2;
     }
 
-    private double getRandom(double a, double b) {
-        return a + RANDOM.nextDouble()*(b-a);
+    private Point getRandom(Point a, Point b) {
+        return a.plus(b.minus(a).multiply(RANDOM.nextDouble()));
     }
 
-    private ComparePointResult comparePoint(Function function, double a, double b, double x) {
+    private ComparePointResult comparePoint(Function function, Point a, Point b, Point x) {
         double moduleAX = getModuleVector(a, x);
         double moduleXB = getModuleVector(x, b);
         if (moduleAX < moduleXB) {
@@ -91,7 +102,7 @@ public class SimpleMethod {
         return new ComparePointResult(x, b,false);
     }
 
-    double getModuleVector(double x1, double x2) {
-        return Math.abs(x1 - x2);
+    double getModuleVector(Point x1, Point x2) {
+        return Math.abs(x1.module() - x2.module());
     }
 }

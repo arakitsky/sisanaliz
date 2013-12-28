@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.Function;
 
+import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.functions.AbstractFunction;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +26,8 @@ public class FunctionTabulationServiceTest  {
 
     class MockFunctionStatigy extends AbstractFunction implements Function {
 
-        protected double getFunctionValue(double x) {
-            return sin(x);
+        protected double getFunctionValue(Point array) {
+            return sin(array.getValue()[0]);
         }
 
 
@@ -35,7 +36,7 @@ public class FunctionTabulationServiceTest  {
     @Test
     public void testGetTabulation() {
 
-        List<Interval> tabulation = functionTabulationService.getTabulation(mockFunctionStatigy, -10.0, 10.0, 100);
+        List<Interval> tabulation = functionTabulationService.getTabulation(mockFunctionStatigy, new Point(new double[]{-10.0}), new Point(new double[]{10.0}), 100);
         assertEquals(tabulation.size(), 6);
     }
  

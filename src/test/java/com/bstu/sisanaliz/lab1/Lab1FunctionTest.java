@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.Function;
 
+import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.functions.Lab1Fuction;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ public class Lab1FunctionTest {
 
     @Test
     public void testGetFunction() {
-        double function = this.function.getValue(2);
+        double function = this.function.getValue(new Point(new double[]{2}));
         assertEquals(function,-0.84772500665, MainClass.E);
     }
 }

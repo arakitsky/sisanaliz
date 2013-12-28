@@ -1,4 +1,4 @@
-package com.bstu.sisanaliz.lab1;
+package com.bstu.sisanaliz;
 
 public enum ExtremaType {
     MIN,MAX;

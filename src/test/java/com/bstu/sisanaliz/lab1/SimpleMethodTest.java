@@ -1,5 +1,7 @@
 package com.bstu.sisanaliz.lab1;
 
+import com.bstu.sisanaliz.ExtremaType;
+import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.functions.Lab1MaxTestFunction;
 import com.bstu.sisanaliz.functions.Lab1MinTestFunction;
 import org.junit.Before;
@@ -21,18 +23,18 @@ public class SimpleMethodTest {
     public void getMaxTest(){
         double e = 10e-4;
         function = new Lab1MaxTestFunction();
-        double extremum = simpleMethod.getExtremum(function, -10, 10, ExtremaType.MAX, e);
+        Point extremum = simpleMethod.getExtremum(function, new Point(new double[]{-10}),new Point(new double[]{10}), ExtremaType.MAX, e);
         System.out.println("f="+ function.getCountCallFunction());
         function.setCountCallFunction(0);
-        assertEquals(extremum, 0, e);
+        assertEquals(extremum.getValue()[0], 0, e);
     }
 
     @Test
     public void getMinTest(){
         double e = 10e-4;
         Lab1MinTestFunction function = new Lab1MinTestFunction();
-        double extremum = simpleMethod.getExtremum(function, -10, 10, ExtremaType.MIN, e);
+        Point extremum = simpleMethod.getExtremum(function, new Point(new double[]{-10}),new Point(new double[]{10}), ExtremaType.MIN, e);
         System.out.println("f="+ function.getCountCallFunction());
-        assertEquals(extremum, 0, e);
+        assertEquals(extremum.getValue()[0], 0, e);
     }
 }
