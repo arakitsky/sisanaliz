@@ -1,4 +1,4 @@
-package com.bstu.sisanaliz.functions;
+package com.bstu.sisanaliz;
 
 import com.bstu.sisanaliz.Function;
 import com.bstu.sisanaliz.Point;

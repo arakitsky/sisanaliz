@@ -1,19 +1,19 @@
 package com.bstu.sisanaliz.lab1;
 
-import com.bstu.sisanaliz.ExtremaType;
+import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Point;
 
 public class Interval {
 
-    public Interval(Point x1, Point x2, ExtremaType extremaType) {
+    public Interval(Point x1, Point x2, ExtremumType extremumType) {
         this.x1 = x1;
         this.x2 = x2;
-        this.extremaType = extremaType;
+        this.extremumType = extremumType;
     }
 
     private Point x1;
     private Point x2;
-    private ExtremaType extremaType;
+    private ExtremumType extremumType;
 
     public Point getX1() {
         return x1;
@@ -23,8 +23,8 @@ public class Interval {
         return x2;
     }
 
-    public ExtremaType getExtremaType() {
-        return extremaType;
+    public ExtremumType getExtremumType() {
+        return extremumType;
     }
 
 
@@ -33,7 +33,7 @@ public class Interval {
         return "Interval{" +
                 "x1=" + x1 +
                 ", x2=" + x2 +
-                ", extremaType=" + extremaType +
+                ", extremumType=" + extremumType +
                 '}';
     }
 }

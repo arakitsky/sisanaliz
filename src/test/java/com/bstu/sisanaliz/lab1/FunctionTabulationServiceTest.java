@@ -3,9 +3,9 @@ package com.bstu.sisanaliz.lab1;
 import com.bstu.sisanaliz.Function;
 
 import com.bstu.sisanaliz.Point;
-import com.bstu.sisanaliz.functions.AbstractFunction;
-import org.junit.Before;
-import org.junit.Test;
+import com.bstu.sisanaliz.AbstractFunction;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class FunctionTabulationServiceTest  {
     private FunctionTabulationService functionTabulationService;
     private FunctionTabulationServiceTest.MockFunctionStatigy mockFunctionStatigy;
 
-    @Before
+    @BeforeMethod
     public void init(){
         functionTabulationService = new FunctionTabulationService();
         mockFunctionStatigy = new MockFunctionStatigy();

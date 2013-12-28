@@ -1,7 +1,7 @@
 package com.bstu.sisanaliz;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
@@ -25,7 +25,7 @@ public class PointTest {
     private Point point1234;
     private Point point6001;
 
-    @Before
+    @BeforeMethod
     public void init() {
         point1 = Point.createPint(1.0, 1.0, 1.0, 1.0);
         point2 = Point.createPint(2.0, 2.0, 2.0, 2.0);

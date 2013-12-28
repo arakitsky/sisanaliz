@@ -1,6 +1,6 @@
 package com.bstu.sisanaliz.lab1;
 
-import com.bstu.sisanaliz.ExtremaType;
+import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Function;
 import com.bstu.sisanaliz.Point;
 
@@ -22,10 +22,10 @@ public class FunctionTabulationService {
             double fx2h = function.getValue(stepX2h);
             //функция максимума
             if((fx<fxh && fxh>fx2h) ){
-                intervals.add(new Interval(stepX,stepX2h, ExtremaType.MAX));
+                intervals.add(new Interval(stepX,stepX2h, ExtremumType.MAX));
             }
             if((fx>fxh) && fxh<fx2h){
-                intervals.add(new Interval(stepX,stepX2h,ExtremaType.MIN));
+                intervals.add(new Interval(stepX,stepX2h, ExtremumType.MIN));
             }
             stepX=stepX.plus(h);
             stepXh=stepX.plus(h);

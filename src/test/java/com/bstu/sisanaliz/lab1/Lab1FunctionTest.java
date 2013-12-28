@@ -3,9 +3,8 @@ package com.bstu.sisanaliz.lab1;
 import com.bstu.sisanaliz.Function;
 
 import com.bstu.sisanaliz.Point;
-import com.bstu.sisanaliz.functions.Lab1Fuction;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +12,7 @@ public class Lab1FunctionTest {
 
     private Function function;
 
-    @Before
+    @BeforeMethod
     public void init(){
         function = new Lab1Fuction();
     }

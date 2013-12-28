@@ -1,6 +1,6 @@
 package com.bstu.sisanaliz.lab1;
 
-import com.bstu.sisanaliz.ExtremaType;
+import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Function;
 import com.bstu.sisanaliz.Point;
 
@@ -45,7 +45,7 @@ public class SimpleMethod {
         }
     }
 
-    public Point getExtremum(Function function, Point startPoint, Point endPoint, ExtremaType extremaType, double e) {
+    public Point getExtremum(Function function, Point startPoint, Point endPoint, ExtremumType extremumType, double e) {
         Point a = startPoint;
         Point b = endPoint;
         int iteration = 0;
@@ -57,26 +57,24 @@ public class SimpleMethod {
             double fs = function.getValue(s);
             double fx = function.getValue(x);
             if(
-                    (fx>=fs && extremaType.equals(ExtremaType.MAX)) ||
-                    (fx<=fs && extremaType.equals(ExtremaType.MIN))
+                    (fx>=fs && extremumType.equals(ExtremumType.MAX)) ||
+                    (fx<=fs && extremumType.equals(ExtremumType.MIN))
             ){
                 if(bigVector.isAxMax()){
                   a=s;
                 } else {
                   b=s;
                 }
-//                printLog(iteration,"1.fb>fs",a, b,x,s);
             } else {
                 if(bigVector.isAxMax()){
                     b=x;
                 } else {
                     a=x;
                 }
-//                printLog(iteration, "2.fb<fs",a, b, x, s);
             }
 
         }while ((b.minus( a).module()) > e) ;
-        printLog(iteration, "END",a,b, null, null);
+        printLog(iteration, "",a,b, null, null);
         return a.plus(b).multiply(1.0/2.0);
     }
 
@@ -86,7 +84,6 @@ public class SimpleMethod {
 
     private Point getX(Point startPoint, Point endPoint) {
         return getRandom(startPoint,endPoint);
-//        return startPoint+(endPoint-startPoint)/2;
     }
 
     private Point getRandom(Point a, Point b) {

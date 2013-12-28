@@ -1,5 +1,6 @@
-package com.bstu.sisanaliz.functions;
+package com.bstu.sisanaliz.lab1;
 
+import com.bstu.sisanaliz.AbstractFunction;
 import com.bstu.sisanaliz.Function;
 import com.bstu.sisanaliz.Point;
 
