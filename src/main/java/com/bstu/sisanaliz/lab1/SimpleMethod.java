@@ -15,7 +15,7 @@ public class SimpleMethod {
      * (maxA maxB) больший орезок. Min - минимальная точка
      */
     class ComparePointResult {
-        ComparePointResult(Point maxA, Point maxB,boolean axMax) {
+        ComparePointResult(Point maxA, Point maxB, boolean axMax) {
             this.maxA = maxA;
             this.maxB = maxB;
             this.axMax = axMax;
@@ -31,6 +31,7 @@ public class SimpleMethod {
         public Point getMaxB() {
             return maxB;
         }
+
         boolean isAxMax() {
             return axMax;
         }
@@ -49,33 +50,33 @@ public class SimpleMethod {
         Point a = startPoint;
         Point b = endPoint;
         int iteration = 0;
-        do{
+        do {
             iteration++;
             Point x = getX(a, b);
-            ComparePointResult bigVector = comparePoint(function,a, b, x);
-            Point s = getRandom(bigVector.getMaxA(),bigVector.getMaxB());
+            ComparePointResult bigVector = comparePoint(function, a, b, x);
+            Point s = getRandom(bigVector.getMaxA(), bigVector.getMaxB());
             double fs = function.getValue(s);
             double fx = function.getValue(x);
-            if(
-                    (fx>=fs && extremumType.equals(ExtremumType.MAX)) ||
-                    (fx<=fs && extremumType.equals(ExtremumType.MIN))
-            ){
-                if(bigVector.isAxMax()){
-                  a=s;
+            if (
+                    (fx >= fs && extremumType.equals(ExtremumType.MAX)) ||
+                            (fx <= fs && extremumType.equals(ExtremumType.MIN))
+                    ) {
+                if (bigVector.isAxMax()) {
+                    a = s;
                 } else {
-                  b=s;
+                    b = s;
                 }
             } else {
-                if(bigVector.isAxMax()){
-                    b=x;
+                if (bigVector.isAxMax()) {
+                    b = x;
                 } else {
-                    a=x;
+                    a = x;
                 }
             }
 
-        }while ((b.minus( a).module()) > e) ;
-        printLog(iteration, "",a,b, null, null);
-        return a.plus(b).multiply(1.0/2.0);
+        } while ((b.minus(a).module()) > e);
+        printLog(iteration, "", a, b, null, null);
+        return a.plus(b).multiply(1.0 / 2.0);
     }
 
     private void printLog(int iteration, String s, Point a, Point b, Point x, Point v) {
@@ -83,7 +84,7 @@ public class SimpleMethod {
     }
 
     private Point getX(Point startPoint, Point endPoint) {
-        return getRandom(startPoint,endPoint);
+        return getRandom(startPoint, endPoint);
     }
 
     private Point getRandom(Point a, Point b) {
@@ -94,9 +95,9 @@ public class SimpleMethod {
         double moduleAX = getModuleVector(a, x);
         double moduleXB = getModuleVector(x, b);
         if (moduleAX < moduleXB) {
-            return new ComparePointResult(a, x,true);
+            return new ComparePointResult(a, x, true);
         }
-        return new ComparePointResult(x, b,false);
+        return new ComparePointResult(x, b, false);
     }
 
     double getModuleVector(Point x1, Point x2) {

@@ -1,8 +1,5 @@
 package com.bstu.sisanaliz;
 
-import com.bstu.sisanaliz.Function;
-import com.bstu.sisanaliz.Point;
-
 /**
  * Created with IntelliJ IDEA.
  * User: 777
@@ -11,11 +8,11 @@ import com.bstu.sisanaliz.Point;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class AbstractFunction implements Function {
-    private int countCallFunction=0;
+    private int countCallFunction = 0;
 
     protected abstract double getFunctionValue(Point array);
 
-    public double getValue(Point array){
+    public double getValue(Point array) {
         countCallFunction++;
         return getFunctionValue(array);
     }

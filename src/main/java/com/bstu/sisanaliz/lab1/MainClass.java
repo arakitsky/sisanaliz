@@ -10,8 +10,8 @@ public class MainClass {
 
 
     public static final double E = 10e-4;
-    public static final Point startPoint = new Point( new double[]{0});
-    public static final Point endPoint = new Point( new double[]{2.6});
+    public static final Point startPoint = new Point(new double[]{0});
+    public static final Point endPoint = new Point(new double[]{2.6});
     public static final int countSteps = 100;
 
     public MainClass() {
@@ -38,7 +38,7 @@ public class MainClass {
 
     public static void main(String[] args) {
         MainClass mainClass = new MainClass();
-        int iter=0;
+        int iter = 0;
         List<Interval> tabulation = mainClass.getFunctionTabulationService().getTabulation(mainClass.getFunction(), startPoint, endPoint, countSteps);
         for (Interval interval : tabulation) {
             System.out.println(++iter);
