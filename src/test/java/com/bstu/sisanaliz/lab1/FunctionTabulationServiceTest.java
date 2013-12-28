@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.Function;
 
+import com.bstu.sisanaliz.Interval;
 import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.AbstractFunction;
 import org.testng.annotations.BeforeMethod;

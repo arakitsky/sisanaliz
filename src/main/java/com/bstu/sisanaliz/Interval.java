@@ -1,4 +1,4 @@
-package com.bstu.sisanaliz.lab1;
+package com.bstu.sisanaliz;
 
 import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Point;

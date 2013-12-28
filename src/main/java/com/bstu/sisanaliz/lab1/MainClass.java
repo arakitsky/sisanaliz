@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Function;
+import com.bstu.sisanaliz.Interval;
 import com.bstu.sisanaliz.Point;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class MainClass {
         List<Interval> tabulation = mainClass.getFunctionTabulationService().getTabulation(mainClass.getFunction(), startPoint, endPoint, countSteps);
         for (Interval interval : tabulation) {
             System.out.println(++iter);
-            Point extremum = mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval.getX1(), interval.getX2(), ExtremumType.MIN, E);
+            Point extremum = mainClass.getSimpleMethod().getExtremum(mainClass.getFunction(), interval, E);
             System.out.println(interval + " point = " + extremum + ", function = " + mainClass.getFunction().getCountCallFunction());
         }
 

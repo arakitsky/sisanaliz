@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Function;
+import com.bstu.sisanaliz.Interval;
 import com.bstu.sisanaliz.Point;
 
 import java.util.ArrayList;

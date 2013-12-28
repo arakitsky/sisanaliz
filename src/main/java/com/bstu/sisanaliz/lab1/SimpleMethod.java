@@ -2,6 +2,7 @@ package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Function;
+import com.bstu.sisanaliz.Interval;
 import com.bstu.sisanaliz.Point;
 
 import java.util.Random;
@@ -46,9 +47,10 @@ public class SimpleMethod {
         }
     }
 
-    public Point getExtremum(Function function, Point startPoint, Point endPoint, ExtremumType extremumType, double e) {
-        Point a = startPoint;
-        Point b = endPoint;
+    public Point getExtremum(Function function, Interval interval, double e) {
+        Point a = interval.getX1();
+        Point b = interval.getX2();
+        ExtremumType extremumType = interval.getExtremumType();
         int iteration = 0;
         do {
             iteration++;

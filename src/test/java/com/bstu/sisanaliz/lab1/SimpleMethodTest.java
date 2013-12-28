@@ -1,6 +1,7 @@
 package com.bstu.sisanaliz.lab1;
 
 import com.bstu.sisanaliz.ExtremumType;
+import com.bstu.sisanaliz.Interval;
 import com.bstu.sisanaliz.Point;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,26 +14,28 @@ public class SimpleMethodTest {
     private Lab1MaxTestFunction function;
 
     @BeforeMethod
-    public void init(){
+    public void init() {
         simpleMethod = new SimpleMethod();
     }
 
     @Test
-    public void getMaxTest(){
+    public void getMaxTest() {
         double e = 10e-4;
         function = new Lab1MaxTestFunction();
-        Point extremum = simpleMethod.getExtremum(function, new Point(new double[]{-10}),new Point(new double[]{10}), ExtremumType.MAX, e);
-        System.out.println("f="+ function.getCountCallFunction());
+        Interval interval = new Interval(new Point(new double[]{-10}), new Point(new double[]{10}), ExtremumType.MAX);
+        Point extremum = simpleMethod.getExtremum(function, interval, e);
+        System.out.println("f=" + function.getCountCallFunction());
         function.setCountCallFunction(0);
         assertEquals(extremum.getValue()[0], 0, e);
     }
 
     @Test
-    public void getMinTest(){
+    public void getMinTest() {
         double e = 10e-4;
         Lab1MinTestFunction function = new Lab1MinTestFunction();
-        Point extremum = simpleMethod.getExtremum(function, new Point(new double[]{-10}),new Point(new double[]{10}), ExtremumType.MIN, e);
-        System.out.println("f="+ function.getCountCallFunction());
+        Interval interval = new Interval(new Point(new double[]{-10}), new Point(new double[]{10}), ExtremumType.MIN);
+        Point extremum = simpleMethod.getExtremum(function, interval, e);
+        System.out.println("f=" + function.getCountCallFunction());
         assertEquals(extremum.getValue()[0], 0, e);
     }
 }
