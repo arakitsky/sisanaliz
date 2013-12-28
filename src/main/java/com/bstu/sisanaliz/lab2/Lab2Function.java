@@ -4,17 +4,10 @@ import com.bstu.sisanaliz.AbstractFunction;
 import com.bstu.sisanaliz.MultivariateFunction;
 import com.bstu.sisanaliz.Point;
 
-/**
- * Created with IntelliJ IDEA.
- * User: 777
- * Date: 28.12.13
- * Time: 13:16
- * To change this template use File | Settings | File Templates.
- */
 public class Lab2Function extends AbstractFunction implements MultivariateFunction {
     @Override
     public Point getGradient(Point point) {
-        double[] values = point.getValue();
+        double[] values = point.getValues();
         double x1 = values[0];
         double x2 = values[1];
         double x3 = values[2];
@@ -23,7 +16,7 @@ public class Lab2Function extends AbstractFunction implements MultivariateFuncti
 
     @Override
     protected double getFunctionValue(Point point) {
-        double[] values = point.getValue();
+        double[] values = point.getValues();
         double x1 = values[0];
         double x2 = values[1];
         double x3 = values[2];

@@ -8,8 +8,8 @@ public class Lab1MaxTestFunction extends AbstractFunction implements Function {
 
 
     @Override
-    protected double getFunctionValue(Point array) {
-        return -1*Math.pow(array.getValue()[0],2);
+    protected double getFunctionValue(Point point) {
+        return -1*Math.pow(point.getValues()[0],2);
     }
 
 }

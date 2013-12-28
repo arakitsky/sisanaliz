@@ -2,63 +2,56 @@ package com.bstu.sisanaliz;
 
 import java.util.Arrays;
 
-/**
- * Created with IntelliJ IDEA.
- * User: 777
- * Date: 27.12.13
- * Time: 23:00
- * To change this template use File | Settings | File Templates.
- */
 public class Point {
-    double[] value;
+    double[] values;
 
-    public double[] getValue() {
-        return value;
+    public double[] getValues() {
+        return values;
     }
 
-    public Point(double[] value) {
-        this.value = value;
+    public Point(double[] values) {
+        this.values = values;
     }
 
     public Point minus(Point point) {
-        double[] value2 = point.getValue();
-        if (value2.length != value.length) {
+        double[] value2 = point.getValues();
+        if (value2.length != values.length) {
             throw new IllegalArgumentException("Неверные размеры");
         }
-        double[] result = new double[value.length];
-        for (int i = 0; i < value.length; i++) {
-            result[i] = value[i] - value2[i];
+        double[] result = new double[values.length];
+        for (int i = 0; i < values.length; i++) {
+            result[i] = values[i] - value2[i];
         }
         return new Point(result);
     }
 
     public Point plus(Point point) {
-        double[] value2 = point.getValue();
-        if (value2.length != value.length) {
+        double[] value2 = point.getValues();
+        if (value2.length != values.length) {
             throw new IllegalArgumentException("Неверные размеры");
         }
-        double[] result = new double[value.length];
-        for (int i = 0; i < value.length; i++) {
-            result[i] = value[i] + value2[i];
+        double[] result = new double[values.length];
+        for (int i = 0; i < values.length; i++) {
+            result[i] = values[i] + value2[i];
         }
         return new Point(result);
     }
 
     public Point multiply(double number) {
-        double[] result = new double[value.length];
-        for (int i = 0; i < value.length; i++) {
-            result[i] = value[i] * number;
+        double[] result = new double[values.length];
+        for (int i = 0; i < values.length; i++) {
+            result[i] = values[i] * number;
         }
         return new Point(result);
     }
 
     public boolean more(Point point) {
-        double[] value2 = point.getValue();
-        if (value2.length != value.length) {
+        double[] value2 = point.getValues();
+        if (value2.length != values.length) {
             return false;
         }
-        for (int i = 0; i < value.length; i++) {
-            double v1 = value[i];
+        for (int i = 0; i < values.length; i++) {
+            double v1 = values[i];
             double v2 = value2[i];
             if (v1 < v2) {
                 return false;
@@ -69,19 +62,19 @@ public class Point {
 
     public double module() {
         double result = 0;
-        for (int i = 0; i < value.length; i++) {
-            result += Math.pow(value[i], 2);
+        for (double value : values) {
+            result += Math.pow(value, 2);
         }
         return Math.sqrt(result);
     }
 
     public boolean equals(Point point, double e) {
-        double[] value2 = point.getValue();
-        if (value2.length != value.length) {
+        double[] value2 = point.getValues();
+        if (value2.length != values.length) {
             return false;
         }
-        for (int i = 0; i < value.length; i++) {
-            double v1 = value[i];
+        for (int i = 0; i < values.length; i++) {
+            double v1 = values[i];
             double v2 = value2[i];
             if (Math.abs(v1 - v2) > e) {
                 return false;
@@ -98,7 +91,7 @@ public class Point {
     @Override
     public String toString() {
         return "Point{" +
-                "value=" + Arrays.toString(value) +
+                "values=" + Arrays.toString(values) +
                 '}';
     }
 }

@@ -26,7 +26,7 @@ public class SimpleMethodTest {
         Point extremum = simpleMethod.getExtremum(function, interval, e);
         System.out.println("f=" + function.getCountCallFunction());
         function.setCountCallFunction(0);
-        assertEquals(extremum.getValue()[0], 0, e);
+        assertEquals(extremum.getValues()[0], 0, e);
     }
 
     @Test
@@ -36,6 +36,6 @@ public class SimpleMethodTest {
         Interval interval = new Interval(new Point(new double[]{-10}), new Point(new double[]{10}), ExtremumType.MIN);
         Point extremum = simpleMethod.getExtremum(function, interval, e);
         System.out.println("f=" + function.getCountCallFunction());
-        assertEquals(extremum.getValue()[0], 0, e);
+        assertEquals(extremum.getValues()[0], 0, e);
     }
 }

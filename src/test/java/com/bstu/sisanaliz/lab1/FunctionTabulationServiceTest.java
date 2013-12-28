@@ -27,8 +27,8 @@ public class FunctionTabulationServiceTest  {
 
     class MockFunctionStatigy extends AbstractFunction implements Function {
 
-        protected double getFunctionValue(Point array) {
-            return sin(array.getValue()[0]);
+        protected double getFunctionValue(Point point) {
+            return sin(point.getValues()[0]);
         }
 
 
