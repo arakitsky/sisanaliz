@@ -24,4 +24,8 @@ public abstract class AbstractFunction implements Function {
     public void setCountCallFunction(int countCallFunction) {
         this.countCallFunction = countCallFunction;
     }
+
+    protected double sqr(double a) {
+        return Math.pow(a, 2);
+    }
 }

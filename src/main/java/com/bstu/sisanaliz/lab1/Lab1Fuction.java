@@ -15,8 +15,4 @@ public class Lab1Fuction extends AbstractFunction implements Function {
         double x = array.getValue()[0];
         return (H * sin(2 * x) * pow(Math.E, sqr(cos(x))) * atan(sqrt(2.71 + sqr(x))) - 0.02) / (G * pow(atan(sqrt(1.56 + sqr(x))), 4) + log(1 + atan(sqrt(5.24 + sqr(x)))));
     }
-
-    private double sqr(double x) {
-        return pow(x, 2);
-    }
 }
