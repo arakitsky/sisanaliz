@@ -21,6 +21,6 @@ public class Lab1FunctionTest {
     @Test
     public void testGetFunction() {
         double function = this.function.getValue(new Point(new double[]{2}));
-        assertEquals(function,-0.84772500665, MainClass.E);
+        assertEquals(function,-0.917556, MainClass.E);
     }
 }
