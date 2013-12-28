@@ -71,12 +71,14 @@ public class Point {
     public boolean equals(Point point, double e) {
         double[] value2 = point.getValues();
         if (value2.length != values.length) {
+            System.out.println("Не совпадает длинна точек");
             return false;
         }
         for (int i = 0; i < values.length; i++) {
             double v1 = values[i];
             double v2 = value2[i];
             if (Math.abs(v1 - v2) > e) {
+                System.out.println("Точки не равны " + this + ", " + point);
                 return false;
             }
         }

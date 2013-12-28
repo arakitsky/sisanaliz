@@ -6,12 +6,12 @@ import com.bstu.sisanaliz.Point;
 
 public class Lab2Function extends AbstractFunction implements MultivariateFunction {
     @Override
-    public Point getGradient(Point point) {
+    public Point getAntiGradient(Point point) {
         double[] values = point.getValues();
         double x1 = values[0];
         double x2 = values[1];
         double x3 = values[2];
-        return Point.createPint((29+18*x1+4*x2+2*x3),(3+4*x1+14*x2-4*x3),(-15+2*x1-4*x2+8*x3));
+        return Point.createPint(-1*(29+18*x1+4*x2+2*x3),-1*(3+4*x1+14*x2-4*x3),-1*(-15+2*x1-4*x2+8*x3));
     }
 
     @Override

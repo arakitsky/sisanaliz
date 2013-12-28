@@ -28,8 +28,8 @@ public class Lab2FunctionTest {
 
     @Test
     public void testGetGradient(){
-        Point expected = Point.createPint(157.0, 79.0, 27.0);
-        assertTrue(lab2Function.getGradient(pint567).equals(expected,E));
+        Point expected = Point.createPint(-157.0, -79.0, -27.0);
+        assertTrue(lab2Function.getAntiGradient(pint567).equals(expected,E));
     }
 
     @Test

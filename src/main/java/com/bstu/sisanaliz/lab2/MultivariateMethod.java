@@ -1,5 +1,6 @@
 package com.bstu.sisanaliz.lab2;
 
+import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.MultivariateFunction;
 import com.bstu.sisanaliz.Point;
 import com.bstu.sisanaliz.Interval;
@@ -14,7 +15,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class MultivariateMethod {
 
-    public Point getExtremum(MultivariateFunction function, Interval interval, double e){
-               throw new NotImplementedException();
+    public Point getExtremum(MultivariateFunction function, Point startPoint,ExtremumType extremumType, double e){
+
+        return null;
     }
 }

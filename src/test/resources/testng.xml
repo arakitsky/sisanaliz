@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="allTests" >
         <packages >
-            <package name="com.bstu.sisanaliz"/>
+            <package name="com.bstu.sisanaliz.*"/>
         </packages>
     </test>
 

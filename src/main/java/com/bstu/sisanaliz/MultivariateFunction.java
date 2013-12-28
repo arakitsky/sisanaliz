@@ -8,5 +8,5 @@ package com.bstu.sisanaliz;
  * To change this template use File | Settings | File Templates.
  */
 public interface MultivariateFunction extends Function {
-    Point getGradient(Point point);
+    Point getAntiGradient(Point point);
 }
