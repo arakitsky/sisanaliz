@@ -56,7 +56,7 @@ public class SimpleMethod {
             iteration++;
             Point x = getX(a, b);
             ComparePointResult bigVector = comparePoint(function, a, b, x);
-            Point s = getRandom(bigVector.getMaxA(), bigVector.getMaxB());
+            Point s = getPointOnVetor(bigVector.getMaxA(), bigVector.getMaxB(),RANDOM.nextDouble());
             double fs = function.getValue(s);
             double fx = function.getValue(x);
             if (
@@ -77,7 +77,7 @@ public class SimpleMethod {
             }
 
         } while ((b.minus(a).module()) > e);
-        printLog(iteration, "", a, b, null, null);
+//        printLog(iteration, "", a, b, null, null);
         return a.plus(b).multiply(1.0 / 2.0);
     }
 
@@ -86,11 +86,12 @@ public class SimpleMethod {
     }
 
     private Point getX(Point startPoint, Point endPoint) {
-        return getRandom(startPoint, endPoint);
+        return getPointOnVetor(startPoint, endPoint,RANDOM.nextDouble());
     }
 
-    private Point getRandom(Point a, Point b) {
-        return a.plus(b.minus(a).multiply(RANDOM.nextDouble()));
+    private Point getPointOnVetor(Point a, Point b,double factor) {
+        Point vectorAB = b.minus(a);
+        return a.plus(vectorAB.multiply(factor));
     }
 
     private ComparePointResult comparePoint(Function function, Point a, Point b, Point x) {

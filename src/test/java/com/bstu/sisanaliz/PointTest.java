@@ -75,4 +75,9 @@ public class PointTest {
     public void multiplyTest(){
         assertTrue(point1.multiply(6).equals(point6,E));
     }
+
+    @Test
+    public void divideTest(){
+        assertTrue(point6.divide(2).equals(point3,E));
+    }
 }

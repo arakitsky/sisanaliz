@@ -68,6 +68,10 @@ public class Point {
         return Math.sqrt(result);
     }
 
+    public Point divide(double number){
+        return multiply(1.0/number);
+    }
+
     public boolean equals(Point point, double e) {
         double[] value2 = point.getValues();
         if (value2.length != values.length) {

@@ -1,10 +1,12 @@
 package com.bstu.sisanaliz.lab2;
 
 import com.bstu.sisanaliz.*;
+import com.bstu.sisanaliz.lab1.SimpleMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class MultivariateMethodTest {
@@ -20,8 +22,7 @@ public class MultivariateMethodTest {
             double[] values = point.getValues();
             double x1 = values[0];
             double x2 = values[1];
-            double x3 = values[2];
-            return sqr(x1)+sqr(x2)+sqr(x3)+1;
+            return sqr(x1)+sqr(x2)+x2;
         }
 
         @Override
@@ -29,25 +30,30 @@ public class MultivariateMethodTest {
             double[] values = point.getValues();
             double x1 = values[0];
             double x2 = values[1];
-            double x3 = values[2];
-            return Point.createPint(-2*x1,-2*x2,-2*x3);
+            return Point.createPint(-2*x1,-2*x2-1);
         }
     }
 
 
     @BeforeMethod
     public void setUp() {
-        multivariateMethod = new MultivariateMethod();
+        multivariateMethod = new MultivariateMethod(new SimpleMethod());
     }
 
     @Test
     public void testGetExtremumMin() {
-        Point extremum = multivariateMethod.getExtremum(new Lab2MinFunction(), Point.createPint(-10, -10, -10), ExtremumType.MIN, E);
-        assertTrue(extremum.equals(Point.createPint(1.0, 1.0, 1.0),E));
+        Lab2MinFunction function = new Lab2MinFunction();
+        Point extremum = multivariateMethod.getExtremum(function, Point.createPint(0, 0), ExtremumType.MIN, E);
+        System.out.println(extremum);
+        System.out.println(function.getValue(extremum));
+        System.out.println(function.getValue(Point.createPint(0,-0.5)));
+        assertEquals(function.getFunctionValue(extremum),-0.25,E);
     }
 
     @Test
     public void testGetExtremumMax() {
         throw new NotImplementedException();
     }
+
+
 }
