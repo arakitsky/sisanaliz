@@ -50,7 +50,7 @@ public class MultivariateMethodTest {
         assertEquals(function.getFunctionValue(extremum),-0.25,E);
     }
 
-    @Test
+    @Test(enabled = false)
     public void testGetExtremumMax() {
         throw new NotImplementedException();
     }

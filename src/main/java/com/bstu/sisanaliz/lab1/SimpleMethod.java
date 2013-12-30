@@ -51,10 +51,10 @@ public class SimpleMethod {
         Point a = interval.getX1();
         Point b = interval.getX2();
         ExtremumType extremumType = interval.getExtremumType();
+        Point x = getX(a, b);
         int iteration = 0;
         do {
             iteration++;
-            Point x = getX(a, b);
             ComparePointResult bigVector = comparePoint(function, a, b, x);
             Point s = getPointOnVetor(bigVector.getMaxA(), bigVector.getMaxB(),RANDOM.nextDouble());
             double fs = function.getValue(s);
@@ -74,6 +74,7 @@ public class SimpleMethod {
                 } else {
                     a = x;
                 }
+                x=s;
             }
 
         } while ((b.minus(a).module()) > e);
@@ -97,13 +98,13 @@ public class SimpleMethod {
     private ComparePointResult comparePoint(Function function, Point a, Point b, Point x) {
         double moduleAX = getModuleVector(a, x);
         double moduleXB = getModuleVector(x, b);
-        if (moduleAX < moduleXB) {
+        if (moduleAX > moduleXB) {
             return new ComparePointResult(a, x, true);
         }
         return new ComparePointResult(x, b, false);
     }
 
     double getModuleVector(Point x1, Point x2) {
-        return Math.abs(x1.module() - x2.module());
+        return x1.minus(x2).module();
     }
 }

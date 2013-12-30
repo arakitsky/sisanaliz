@@ -27,10 +27,9 @@ public class MultivariateMethod {
         double module;
         do {
             iteration++;
-            double antiGradientModule = antiGradientPoint.module();
-            point = simpleMethod.getExtremum(function, new Interval(point, antiGradientPoint, extremumType), e);
+            point = simpleMethod.getExtremum(function, new Interval(point, antiGradientPoint.plus(point), extremumType), e);
             antiGradientPoint = function.getAntiGradient(point);
-            module = point.minus(antiGradientPoint).module();
+            module = antiGradientPoint.module();
             System.out.println("Iteration=" + iteration + "module=" + module + ", Point=" + point + ", antiGradientPoint" + antiGradientPoint);
         } while (module > e);
 
