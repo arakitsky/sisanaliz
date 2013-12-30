@@ -27,12 +27,12 @@ public class PointTest {
 
     @BeforeMethod
     public void init() {
-        point1 = Point.createPint(1.0, 1.0, 1.0, 1.0);
-        point2 = Point.createPint(2.0, 2.0, 2.0, 2.0);
-        point3 = Point.createPint(3.0, 3.0, 3.0, 3.0);
-        point6 = Point.createPint(6.0, 6.0, 6.0, 6.0);
-        point1234 = Point.createPint(1.0, 2.0, 3.0, 4.0);
-        point6001 = Point.createPint(6.0001, 6.0001, 6.0001, 6.0001);
+        point1 = Point.createPoint(1.0, 1.0, 1.0, 1.0);
+        point2 = Point.createPoint(2.0, 2.0, 2.0, 2.0);
+        point3 = Point.createPoint(3.0, 3.0, 3.0, 3.0);
+        point6 = Point.createPoint(6.0, 6.0, 6.0, 6.0);
+        point1234 = Point.createPoint(1.0, 2.0, 3.0, 4.0);
+        point6001 = Point.createPoint(6.0001, 6.0001, 6.0001, 6.0001);
 
     }
 

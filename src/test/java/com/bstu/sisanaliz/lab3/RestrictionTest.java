@@ -2,9 +2,9 @@ package com.bstu.sisanaliz.lab3;
 
 import com.bstu.sisanaliz.Point;
 import org.testng.annotations.Test;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,12 +20,12 @@ public class RestrictionTest {
     @Test
     public void testGetValueNull() {
         final double i=3;
-        Restriction restriction = createRestriction(-3, 5);
-        double value = restriction.getValue(Point.createPint());
+        Restriction restriction = createRestriction(-3, Point.createPoint(-5,3));
+        double value = restriction.getValue(Point.createPoint());
         assertEquals(value,0, E);
     }
 
-    private Restriction createRestriction(final double functionValue, final double gradientValue) {
+    private Restriction createRestriction(final double functionValue, final Point gradientValue) {
         return new Restriction() {
 
             @Override
@@ -34,7 +34,7 @@ public class RestrictionTest {
             }
 
             @Override
-            protected double getGradient(Point point) {
+            protected Point getGradient(Point point) {
                 return gradientValue;
             }
         };
@@ -43,24 +43,32 @@ public class RestrictionTest {
     @Test
     public void testGetGradientValueNull()  {
         final double i=3;
-        Restriction restriction = createRestriction(3, -5);
-        double value = restriction.getGradientValue(Point.createPint());
-        assertEquals(value,0, E);
+        Restriction restriction = createRestriction(3,Point.createPoint(-5,3));
+        Point value = restriction.getGradientValue(Point.createPoint());
+        assertTrue(value.equals(Point.createPoint(0, 3), E));
     }
 
     @Test
     public void testGetGradientValueMax()  {
         final double i=3;
-        Restriction restriction = createRestriction(-3, 5);
-        double value = restriction.getGradientValue(Point.createPint());
-        assertEquals(value,5, E);
+        Restriction restriction = createRestriction(-3, Point.createPoint(5,-3));
+        Point value = restriction.getGradientValue(Point.createPoint());
+        assertTrue(value.equals(Point.createPoint(5, 0), E));
+    }
+
+    @Test
+    public void testGetGradientValue3()  {
+        final double i=3;
+        Restriction restriction = createRestriction(-3, Point.createPoint(-5,-3));
+        Point value = restriction.getGradientValue(Point.createPoint());
+        assertTrue(value.equals(Point.createPoint(0, 0), E));
     }
 
     @Test
     public void testGetValueMax(){
         final double i=3;
-        Restriction restriction = createRestriction(3, -5);
-        double value = restriction.getValue(Point.createPint());
+        Restriction restriction = createRestriction(3, Point.createPoint(-5,3));
+        double value = restriction.getValue(Point.createPoint());
         assertEquals(value,3, E);
     }
 }

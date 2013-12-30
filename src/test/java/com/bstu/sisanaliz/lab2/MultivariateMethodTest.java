@@ -30,7 +30,7 @@ public class MultivariateMethodTest {
             double[] values = point.getValues();
             double x1 = values[0];
             double x2 = values[1];
-            return Point.createPint(-2*x1,-2*x2-1);
+            return Point.createPoint(-2 * x1, -2 * x2 - 1);
         }
     }
 
@@ -43,10 +43,10 @@ public class MultivariateMethodTest {
     @Test
     public void testGetExtremumMin() {
         Lab2MinFunction function = new Lab2MinFunction();
-        Point extremum = multivariateMethod.getExtremum(function, Point.createPint(0, 0), ExtremumType.MIN, E);
+        Point extremum = multivariateMethod.getExtremum(function, Point.createPoint(0, 0), ExtremumType.MIN, E);
         System.out.println(extremum);
         System.out.println(function.getValue(extremum));
-        System.out.println(function.getValue(Point.createPint(0,-0.5)));
+        System.out.println(function.getValue(Point.createPoint(0, -0.5)));
         assertEquals(function.getFunctionValue(extremum),-0.25,E);
     }
 

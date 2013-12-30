@@ -1,17 +1,18 @@
-package com.bstu.sisanaliz.lab2;
+package com.bstu.sisanaliz.lab3;
 
 import com.bstu.sisanaliz.AbstractFunction;
 import com.bstu.sisanaliz.MultivariateFunction;
 import com.bstu.sisanaliz.Point;
 
-public class Lab2Function extends AbstractFunction implements MultivariateFunction {
+//function x1^2+x2^2+x2
+public class TestFunction extends AbstractFunction implements MultivariateFunction {
+
     @Override
     public Point getAntiGradient(Point point) {
         double[] values = point.getValues();
         double x1 = values[0];
         double x2 = values[1];
-        double x3 = values[2];
-        return Point.createPoint(-1 * (29 + 18 * x1 + 4 * x2 + 2 * x3), -1 * (3 + 4 * x1 + 14 * x2 - 4 * x3), -1 * (-15 + 2 * x1 - 4 * x2 + 8 * x3));
+        return Point.createPoint(2 * x1, 2 * x2 + 1);
     }
 
     @Override
@@ -19,8 +20,6 @@ public class Lab2Function extends AbstractFunction implements MultivariateFuncti
         double[] values = point.getValues();
         double x1 = values[0];
         double x2 = values[1];
-        double x3 = values[2];
-        return 9 * sqr(x1) + 7 * sqr(x2) + 4 * sqr(x3)+4*x1*x2+2*x1*x3-4*x2*x3+29*x1+3*x2-15*x3;
+        return sqr(x1) + sqr(x2) + x2;
     }
-
 }

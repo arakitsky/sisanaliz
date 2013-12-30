@@ -89,7 +89,7 @@ public class Point {
         return true;
     }
 
-    public static Point createPint(double... doubles) {
+    public static Point createPoint(double... doubles) {
         return new Point(doubles);
 
     }

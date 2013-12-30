@@ -23,12 +23,12 @@ public class Lab2FunctionTest {
     @BeforeMethod
     public void init(){
         lab2Function = new Lab2Function();
-        pint567 = Point.createPint(5.0, 6.0, 7.0);
+        pint567 = Point.createPoint(5.0, 6.0, 7.0);
     }
 
     @Test
     public void testGetGradient(){
-        Point expected = Point.createPint(-157.0, -79.0, -27.0);
+        Point expected = Point.createPoint(-157.0, -79.0, -27.0);
         assertTrue(lab2Function.getAntiGradient(pint567).equals(expected,E));
     }
 
