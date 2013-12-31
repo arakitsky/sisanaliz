@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,6 +45,19 @@ public class Lab3FineFunctionTest {
         };
     }
 
+    @DataProvider(name = "gradientValues")
+    public Object[][] createDataGradient(Method m) {
+        System.out.println(m.getName());
+        return new Object[][]{
+                new Object[]{Point.createPoint(3, -1), Point.createPoint(1.28395, 0)},
+                new Object[]{Point.createPoint(-1, 3), Point.createPoint(0, 1.28395)},
+                new Object[]{Point.createPoint(3, 1), Point.createPoint(1.09402, 0.307692)},
+                new Object[]{Point.createPoint(-3, -1), Point.createPoint(-1.47692, 0.246154)},
+                new Object[]{Point.createPoint(0, 0), Point.createPoint(0, 0)},
+                new Object[]{Point.createPoint(10, 10), Point.createPoint(0.190901, 0.190901)},
+                new Object[]{Point.createPoint(-1, -1), Point.createPoint(0, 0)},
+        };
+    }
 
     @Test(dataProvider = "functionValue")
     public void testGetFunctionValue(Point point, double value) throws Exception {
@@ -51,8 +65,10 @@ public class Lab3FineFunctionTest {
         assertEquals(functionValue, value, E);
     }
 
-    @Test
-    public void testGetAntiGradient() throws Exception {
-
+    @Test(dataProvider = "gradientValues")
+    public void testGetAntiGradient(Point point, Point value) throws Exception {
+        Point antiGradient = lab3FineFunction.getAntiGradient(point);
+        assertTrue(antiGradient.equals(value, E));
     }
+
 }

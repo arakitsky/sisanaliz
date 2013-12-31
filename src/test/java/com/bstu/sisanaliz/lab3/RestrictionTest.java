@@ -42,31 +42,22 @@ public class RestrictionTest {
 
     @Test
     public void testGetGradientValueNull()  {
-        final double i=3;
-        Restriction restriction = createRestriction(3,Point.createPoint(-5,3));
-        Point value = restriction.getGradientValue(Point.createPoint());
-        assertTrue(value.equals(Point.createPoint(0, 3), E));
+        Restriction restriction = createRestriction(-3,Point.createPoint(-5,3));
+        Point value = restriction.getGradientValue(Point.createPoint(0,0));
+        assertTrue(value.equals(Point.createPoint(0, 0), E));
     }
 
     @Test
     public void testGetGradientValueMax()  {
         final double i=3;
-        Restriction restriction = createRestriction(-3, Point.createPoint(5,-3));
-        Point value = restriction.getGradientValue(Point.createPoint());
-        assertTrue(value.equals(Point.createPoint(5, 0), E));
+        Restriction restriction = createRestriction(3, Point.createPoint(5,-3));
+        Point value = restriction.getGradientValue(Point.createPoint(0,0));
+        assertTrue(value.equals(Point.createPoint(5, -3), E));
     }
 
-    @Test
-    public void testGetGradientValue3()  {
-        final double i=3;
-        Restriction restriction = createRestriction(-3, Point.createPoint(-5,-3));
-        Point value = restriction.getGradientValue(Point.createPoint());
-        assertTrue(value.equals(Point.createPoint(0, 0), E));
-    }
 
     @Test
     public void testGetValueMax(){
-        final double i=3;
         Restriction restriction = createRestriction(3, Point.createPoint(-5,3));
         double value = restriction.getValue(Point.createPoint());
         assertEquals(value,3, E);

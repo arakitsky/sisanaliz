@@ -5,7 +5,7 @@ import com.bstu.sisanaliz.Point;
 public abstract class Restriction {
     public double getValue(Point point) {
         double functionValue = getFunction(point);
-        return getMaxZeroFunction(functionValue);
+        return functionValue > 0 ? functionValue : 0;
     }
 
     private double getMaxZeroFunction(double functionValue) {
@@ -13,13 +13,7 @@ public abstract class Restriction {
     }
 
     public Point getGradientValue(Point point){
-        Point functionValue = getGradient(point);
-        double[] values = functionValue.getValues();
-        double[] newValues = new double[values.length];
-        for (int i = 0; i < values.length; i++) {
-            newValues[i] = getMaxZeroFunction(values[i]);
-        }
-        return new Point(newValues);
+        return getFunction(point) > 0 ? getGradient(point) : Point.createNullPoint(point.getValues().length);
     }
 
     protected abstract double getFunction(Point point);

@@ -91,7 +91,9 @@ public class Point {
 
     public static Point createPoint(double... doubles) {
         return new Point(doubles);
-
+    }
+    public static Point createNullPoint(int value) {
+        return new Point(new double[value]);
     }
 
     @Override

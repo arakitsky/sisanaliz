@@ -19,22 +19,27 @@ public class Lab3FineFunction extends RestrictionFunction {
 
     @Override
     protected double getFunctionValue(Point point) {
-        double sum=0;
-        for (Restriction restriction : getRestrictionList()) {
-            sum+=Math.pow(restriction.getValue(point),2);
-        }
+        double sum = getSumRestrictionFunctions(point);
         return getTau()*Math.log(1+sum);
 
 
     }
 
+    private double getSumRestrictionFunctions(Point point) {
+        double sum=0;
+        for (Restriction restriction : getRestrictionList()) {
+            sum+=Math.pow(restriction.getValue(point),2);
+        }
+        return sum;
+    }
+
     @Override
     public Point getAntiGradient(Point point) {
-//        double v = 1 / getFunctionValue(point);
-//        for (Restriction restriction : getRestrictionList()) {
-//            restriction.getGradientValue(point)
-//        }
-//        return v;
-        return null;
+        double v = 1 / (1+getSumRestrictionFunctions(point));
+        Point result = Point.createNullPoint(point.getValues().length);
+        for (Restriction restriction : getRestrictionList()) {
+            result=result.plus(restriction.getGradientValue(point).multiply(2*restriction.getValue(point)));
+        }
+        return result.multiply(v);
     }
 }

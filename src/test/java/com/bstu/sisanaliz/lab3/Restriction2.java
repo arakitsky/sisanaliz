@@ -16,6 +16,6 @@ public class Restriction2 extends Restriction {
     protected Point getGradient(Point point) {
         double[] values = point.getValues();
         double x1 = values[0];
-        return Point.createPoint(2 * x1,0);
+        return Point.createPoint(2 * x1,1);
     }
 }
