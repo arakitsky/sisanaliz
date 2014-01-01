@@ -20,7 +20,7 @@ public class Lab3FineFunction extends RestrictionFunction {
     @Override
     protected double getFunctionValue(Point point) {
         double sum = getSumRestrictionFunctions(point);
-        return getTau()*Math.log(1+sum);
+        return Math.log(1+sum);
 
 
     }

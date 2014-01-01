@@ -28,11 +28,17 @@ public class Lab3Function extends AbstractFunction implements MultivariateFuncti
 
     @Override
     protected double getFunctionValue(Point point) {
-        return function.getValue(point)+restrictionFunction.getValue(point);
+        int tau = restrictionFunction.getTau();
+        return function.getValue(point)+tau*restrictionFunction.getValue(point);
     }
 
     @Override
     public Point getAntiGradient(Point point) {
-        return function.getAntiGradient(point).plus(restrictionFunction.getAntiGradient(point));
+        int tau = restrictionFunction.getTau();
+        return function.getAntiGradient(point).plus(restrictionFunction.getAntiGradient(point).multiply(tau));
+    }
+
+    public void nextIterationFunction(){
+        restrictionFunction.incrementTau();
     }
 }

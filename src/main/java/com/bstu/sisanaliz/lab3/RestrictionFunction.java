@@ -16,7 +16,7 @@ import java.util.List;
  */
 public abstract class RestrictionFunction extends AbstractFunction implements MultivariateFunction {
 
-    private static int tau = 1;
+    private int tau = 1;
 
     private List<Restriction> restrictionList;
 
@@ -28,7 +28,7 @@ public abstract class RestrictionFunction extends AbstractFunction implements Mu
         tau*=2;
     }
 
-    public static int getTau() {
+    public int getTau() {
         return tau;
     }
 

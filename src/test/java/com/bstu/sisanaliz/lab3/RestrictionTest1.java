@@ -3,7 +3,7 @@ package com.bstu.sisanaliz.lab3;
 import com.bstu.sisanaliz.Point;
 
 //x1+x2^2
-public class Restriction1 extends Restriction {
+public class RestrictionTest1 extends Restriction {
     @Override
     protected double getFunction(Point point) {
         double[] values = point.getValues();

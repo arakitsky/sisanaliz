@@ -26,8 +26,8 @@ public class Lab3FineFunctionTest {
     @BeforeMethod
     public void init() {
         ArrayList<Restriction> restrictions = new ArrayList<Restriction>();
-        restrictions.add(new Restriction1());
-        restrictions.add(new Restriction2());
+        restrictions.add(new RestrictionTest1());
+        restrictions.add(new RestrictionTest2());
         lab3FineFunction = new Lab3FineFunction(restrictions);
     }
 
