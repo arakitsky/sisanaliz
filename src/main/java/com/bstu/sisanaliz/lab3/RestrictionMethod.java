@@ -27,7 +27,7 @@ public class RestrictionMethod {
             iter++;
             oldPoint = newPoint;
             newPoint= multivariateMethod.getExtremum(function, newPoint, ExtremumType.MIN, e);
-            function.nextIterationFunction();
+//            function.nextIterationFunction();
             System.out.println("\ni="+iter+".x="+newPoint+"function="+function.getValue(newPoint));
         }while (newPoint.minus(oldPoint).module()>e);
         System.out.println("Конец.");

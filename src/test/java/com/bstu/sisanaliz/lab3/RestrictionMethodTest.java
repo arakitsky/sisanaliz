@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
+import static org.testng.Assert.assertTrue;
+
 /**
  * Created with IntelliJ IDEA.
  * User: 777
@@ -42,6 +44,8 @@ public class RestrictionMethodTest {
     @Test
     public void testGetValue()  {
         Point restrictionMethodValue = restrictionMethod.getValue(lab3Function, Point.createNullPoint(3), 1e-3);
-        System.out.println(restrictionMethodValue);
+        System.out.println("Результат: "+restrictionMethodValue);
+        assertTrue(restrictionMethodValue.equals(Point.createPoint()));
+
     }
 }
