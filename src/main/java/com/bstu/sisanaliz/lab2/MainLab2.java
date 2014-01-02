@@ -15,8 +15,8 @@ public class MainLab2 {
 
     public static void main(String[] args) {
         Lab2Function lab2Function = new Lab2Function();
-        MultivariateMethod multivariateMethod = new MultivariateMethod(new SimpleMethod());
-        Point extremum = multivariateMethod.getExtremum(lab2Function, Point.createPoint(0, 0, 0), ExtremumType.MIN, 1e-4);
+        AntigradientMethod antigradientMethod = new AntigradientMethod(new SimpleMethod());
+        Point extremum = antigradientMethod.getExtremum(lab2Function, Point.createPoint(0, 0, 0), ExtremumType.MIN, 1e-4);
         System.out.println(extremum);
         System.out.println(lab2Function.getValue(extremum));
 

@@ -2,7 +2,7 @@ package com.bstu.sisanaliz.lab3;
 
 import com.bstu.sisanaliz.ExtremumType;
 import com.bstu.sisanaliz.Point;
-import com.bstu.sisanaliz.lab2.MultivariateMethod;
+import com.bstu.sisanaliz.lab2.AntigradientMethod;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,10 +13,10 @@ import com.bstu.sisanaliz.lab2.MultivariateMethod;
  */
 public class RestrictionMethod {
 
-    private MultivariateMethod multivariateMethod;
+    private AntigradientMethod antigradientMethod;
 
-    public RestrictionMethod(MultivariateMethod multivariateMethod) {
-        this.multivariateMethod = multivariateMethod;
+    public RestrictionMethod(AntigradientMethod antigradientMethod) {
+        this.antigradientMethod = antigradientMethod;
     }
 
     public Point getValue(Lab3Function function, Point startPoint, double e){
@@ -26,7 +26,7 @@ public class RestrictionMethod {
         do{
             iter++;
             oldPoint = newPoint;
-            newPoint= multivariateMethod.getExtremum(function, newPoint, ExtremumType.MIN, e);
+            newPoint= antigradientMethod.getExtremum(function, newPoint, ExtremumType.MIN, e);
 //            function.nextIterationFunction();
             System.out.println("\ni="+iter+".x="+newPoint+"function="+function.getValue(newPoint));
         }while (newPoint.minus(oldPoint).module()>e);

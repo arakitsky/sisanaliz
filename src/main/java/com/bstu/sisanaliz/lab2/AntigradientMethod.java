@@ -11,11 +11,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * Time: 13:07
  * To change this template use File | Settings | File Templates.
  */
-public class MultivariateMethod {
+public class AntigradientMethod {
 
     public SimpleMethod simpleMethod;
 
-    public MultivariateMethod(SimpleMethod simpleMethod) {
+    public AntigradientMethod(SimpleMethod simpleMethod) {
         this.simpleMethod = simpleMethod;
     }
 
@@ -30,7 +30,7 @@ public class MultivariateMethod {
             point = simpleMethod.getExtremum(function, new Interval(point, antiGradientPoint.plus(point), extremumType), e);
             antiGradientPoint = function.getAntiGradient(point);
             module = antiGradientPoint.module();
-//            System.out.println("Iteration=" + iteration + "module=" + module + ", Point=" + point + ", antiGradientPoint" + antiGradientPoint);
+            System.out.println("Iteration=" + iteration + "module=" + module + ", Point=" + point + ", antiGradientPoint" + antiGradientPoint);
         } while (module > e);
 //            System.out.println("Iteration=" + iteration + "module=" + module + ", Point=" + point + ", antiGradientPoint" + antiGradientPoint);
 
